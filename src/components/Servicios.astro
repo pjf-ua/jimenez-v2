@@ -1,77 +1,95 @@
+---
+import {asesoramientos} from '../data/asesoria.json';
+const data = asesoramientos;
+---
 <section id="servicios" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2
-          class="text-4xl font-['Playfair_Display'] font-bold text-gray-900 mb-4"
-        >
-          Nuestros Servicios
-        </h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">
-          Ofrecemos una amplia gama de servicios profesionales adaptados a
-          sus necesidades específicas
-        </p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div
-          class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow"
-        >
-          <div
-            class="w-16 h-16 bg-gray-200 bg-opacity-10 rounded-full flex items-center justify-center mb-6"
-          >
-            <i class="ri-bank-line text-[#0F4C81] text-2xl"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-4">Asesoría Fiscal</h3>
-          <p class="text-gray-600 mb-6">
-            Optimización fiscal para empresas y particulares, declaraciones
-            de impuestos y planificación tributaria.
-          </p>
-          <button
-            class="text-[#0F4C81] hover:text-opacity-80 font-medium flex items-center"
-          >
-            Más información
-            <i class="ri-arrow-right-line ml-2"></i>
-          </button>
-        </div>
-        <div
-          class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow"
-        >
-          <div
-            class="w-16 h-16 bg-gray-200 bg-opacity-10 rounded-full flex items-center justify-center mb-6"
-          >
-            <i class="ri-scales-3-line text-[#0F4C81] text-2xl"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-4">Asesoría Legal</h3>
-          <p class="text-gray-600 mb-6">
-            Servicios legales integrales, contratos, litigios y
-            asesoramiento jurídico personalizado.
-          </p>
-          <button
-            class="text-[#0F4C81] hover:text-opacity-80 font-medium flex items-center"
-          >
-            Más información
-            <i class="ri-arrow-right-line ml-2"></i>
-          </button>
-        </div>
-        <div
-          class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow"
-        >
-          <div
-            class="w-16 h-16 bg-gray-200 bg-opacity-10 rounded-full flex items-center justify-center mb-6"
-          >
-            <i class="ri-line-chart-line text-[#0F4C81] text-2xl"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-4">Consultoría Financiera</h3>
-          <p class="text-gray-600 mb-6">
-            Análisis financiero, planificación estratégica y asesoramiento
-            en inversiones.
-          </p>
-          <button
-            class="text-[#0F4C81] hover:text-opacity-80 font-medium flex items-center"
-          >
-            Más información
-            <i class="ri-arrow-right-line ml-2"></i>
-          </button>
-        </div>
-      </div>
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2
+        class="text-4xl font-['Playfair_Display'] font-bold text-gray-900 mb-4"
+      >
+        Nuestros Servicios
+      </h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Ofrecemos una amplia gama de servicios profesionales adaptados a
+        sus necesidades específicas
+      </p>
     </div>
-  </section>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {data.map((asesoramiento) => (
+        <div
+        class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+      >
+        <div
+          class="w-16 h-16 bg-gray-200 bg-opacity-10 rounded-full flex items-center justify-center mb-6"
+        >
+            <i class={`${asesoramiento.icon} text-[#0F4C81] text-2xl`}></i>
+          
+        </div>
+        <h3 class="text-xl font-semibold mb-4">{asesoramiento.nombre}</h3>
+        <p class="text-gray-600 mb-6">
+          {asesoramiento.descripcion}
+        </p>
+        <button
+          onclick={`showServiceModal(${asesoramiento.id})`}
+          class="text-[#0F4C81] cursor-pointer hover:text-opacity-80 font-medium flex items-center"
+        >
+          Más información
+          <i class="ri-arrow-right-line ml-2"></i>
+        </button>
+        <div
+          id={`modal-${asesoramiento.id}`}
+          class="fixed inset-0 backdrop-brightness-25 bg-opacity-50 hidden z-50 flex items-center justify-center"
+        >
+          <div class="bg-white rounded-lg max-w-2xl w-full mx-4 p-8">
+            <div class="flex justify-between items-center mb-6">
+              <h3 class="text-2xl font-semibold">{asesoramiento.nombre}</h3>
+              <button
+                onclick={`closeModal(${asesoramiento.id})`}
+                class="text-gray-500 hover:text-gray-700"
+              >
+                <i class="ri-close-line text-2xl cursor-pointer"></i>
+              </button>
+            </div>
+            <div class="space-y-4">
+              <p class="text-gray-600">
+                Nuestros servicios de {asesoramiento.nombre} incluyen:
+              </p>
+              <ul class="list-disc list-inside space-y-2 text-gray-600">
+                {asesoramiento.servicios.map((servicio) => (
+                  <li>{servicio}</li>
+                ))}
+                
+              </ul>
+              <p class="text-gray-600 mt-4">
+                Nuestro equipo de expertos fiscalistas te ayudará a
+                optimizar tu situación fiscal de manera legal y eficiente.
+              </p>
+              <div class="mt-6 pt-6 border-t">
+                <button
+                  onclick={`closeModal(${asesoramiento.id})`}
+                  class="bg-[#0F4C81] text-white cursor-pointer px-6 py-2 rounded-lg hover:bg-opacity-90"
+                >
+                  Cerrar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+
+<script is:inline>
+  function showServiceModal(id) {
+    document.getElementById(`modal-${id}`).classList.remove("hidden");
+  }
+
+  function closeModal(id) {
+    document.getElementById(`modal-${id}`).classList.add("hidden");
+  }
+</script>

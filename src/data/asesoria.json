@@ -1,0 +1,61 @@
+{
+    "asesoramientos": [
+      {
+        "id": 1,
+        "icon": "ri-bank-line",
+        "nombre": "Asesoramiento fiscal",
+        "descripcion": "Somos profesionales que gestionan el cumplimiento de las obligaciones tributarias ante la administración ya sea para personas físicas o bien, empresas. Como asesores fiscales, elegimos las mejores soluciones a problemas determinados, cumplimentamos liquidaciones tributarias e identificamos responsabilidades tributarias, entre otros.",
+        "servicios": [
+          "Iva e impuestos especiales",
+          "Declaraciones de renta y patrimonio",
+          "Declaraciones estimación objetiva de módulos",
+          "Declaraciones estimación directa simplificada y directa normal",
+          "Resúmenes anuales",
+          "Atención inspecciones tributarias",
+          "Constitución integral de empresas"
+        ]
+      },
+      {
+        "id": 2,
+        "icon": "ri-scales-3-line",
+        "nombre": "Asesoramiento laboral",
+        "descripcion": "Nos encargamos de las tareas burocráticas de la empresa, así pues, gestionamos las labores empresariales dentro de este marco. Gestionamos desde trámites de seguros hasta contrataciones.",
+        "servicios": [
+          "Confección nóminas y seguros sociales",
+          "Altas y bajas de trabajadores ante INSS e INEM",
+          "Creación laboral nueva empresa",
+          "Contratos de trabajo",
+          "Expedientes de regulación de empleo",
+          "Altas y bajas de autónomos",
+          "Gestión de prestaciones y pensiones",
+          "Atención inspecciones laborales",
+          "Tramitación expedientes de extranjería",
+          "Confección y presentación impuesto mod. 111 y 190"
+        ]
+      },
+      {
+        "id": 3,
+        "icon": "ri-line-chart-line",
+        "nombre": "Asesoramiento contable",
+        "descripcion": "Como contables, nos encargamos de registrar, clasificar y resumir operaciones mercantiles de una empresa o negocio con el objeto de conocer el estado de entrada y salida de capital.",
+        "servicios": [
+          "Constitución de sociedades mercantiles",
+          "Contabilidades",
+          "Impuesto de sociedades, cuentas anuales y libros oficiales"
+        ]
+      },
+      {
+        "id": 4,
+        "icon": "ri-line-chart-line",
+        "nombre": "Otros trámites",
+        "descripcion": "Fuera de estas tres categorías anteriores ofrecemos otros tipos de gestiones basadas en licencias, constituciones y disoluciones.",
+        "servicios": [
+          "Constitución y disolución de sociedades",
+          "Constitución y disolución de comunidades de bienes",
+          "Constitución de comunidades de propietarios",
+          "Certificados de últimas voluntades",
+          "Cualquier gestión ante organismos oficiales"
+        ]
+      }
+    ]
+  }
